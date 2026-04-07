@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Internal Management Portal</title>
     <style>
         * {
@@ -13,32 +13,35 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: #ffffff;
+            background-color: #f4f4f4; /* 稍微深一点的背景，突出模块 */
             color: #000000;
-            padding: 20px;
+            padding: 15px;
         }
         
         h1 {
             text-align: center;
             margin-bottom: 20px;
-            font-size: 24px;
+            font-size: 22px;
+            color: #333;
         }
         
         .grid-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
             grid-template-areas: 
                 "module1 module2"
                 "module3 module4";
-            gap: 20px;
-            height: calc(100vh - 100px);
+            gap: 15px;
+            /* 电脑端保持比例 */
+            min-height: calc(100vh - 100px);
         }
         
         .module {
             border: 1px solid #000;
+            background-color: #ffffff;
             padding: 15px;
             overflow: auto;
+            border-radius: 4px; /* 轻微圆角看起来更现代 */
         }
         
         .module h2 {
@@ -46,53 +49,89 @@
             margin-bottom: 10px;
             border-bottom: 1px solid #000;
             padding-bottom: 5px;
+            display: flex;
+            align-items: center;
         }
-        
+
         .module-content {
             font-size: 14px;
-            line-height: 1.5;
+            line-height: 1.6;
         }
         
+        /* 查询表单布局 */
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
         input {
-            padding: 8px;
-            font-size: 14px;
+            flex: 1;
+            padding: 10px;
+            font-size: 16px; /* 防止 iOS 自动放大 */
             border: 1px solid #000;
+            border-radius: 4px;
         }
         
         button {
-            padding: 8px 16px;
+            padding: 10px 20px;
             font-size: 14px;
             border: 1px solid #000;
-            background: #fff;
+            background: #000;
+            color: #fff;
             cursor: pointer;
-            margin-left: 10px;
+            border-radius: 4px;
+            transition: 0.2s;
         }
         
-        button:hover {
-            background: #f0f0f0;
+        button:active {
+            background: #444;
         }
         
         #searchResult {
             margin-top: 10px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 4px;
             white-space: pre-wrap;
+            font-family: monospace;
         }
         
         #notifications, #outOfStock, #reserved {
             white-space: pre-wrap;
         }
         
-        /* 模块 4 预留保持空白 */
-        #reserved {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-        }
-        
+        /* 移动端适配 */
         @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
             .grid-container {
                 grid-template-columns: 1fr;
-                grid-template-rows: auto auto auto auto;
+                grid-template-areas: 
+                    "module2"  /* 留言板第一 */
+                    "module1"  /* 查询第二 */
+                    "module3"  /* 缺货第三 */
+                    "module4"; /* 预留最后 */
+                height: auto;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            h1 {
+                font-size: 18px;
+            }
+
+            .module {
+                min-height: 150px;
             }
         }
     </style>
@@ -102,27 +141,31 @@
     
     <div class="grid-container">
         <div class="module" style="grid-area: module1;">
-            <h2>模块 1：价格查询</h2>
+            <h2>🔍 价格查询</h2>
             <div class="module-content">
-                <input type="text" id="productCode" placeholder="输入产品代码 (如：PROD001)">
-                <button onclick="searchProduct()">查询价格</button>
-                <div id="searchResult"></div>
+                <div class="search-box">
+                    <input type="text" id="productCode" placeholder="输入产品代码">
+                    <button onclick="searchProduct()">查询</button>
+                </div>
+                <div id="searchResult">等待查询...</div>
             </div>
         </div>
         
         <div class="module" style="grid-area: module2;">
-            <h2>模块 2：留言板</h2>
-            <div class="module-content" id="notifications"></div>
+            <h2>📢 留言板 (notice.txt)</h2>
+            <div class="module-content" id="notifications">正在同步留言...</div>
         </div>
         
         <div class="module" style="grid-area: module3;">
-            <h2>模块 3：缺货清单</h2>
-            <div class="module-content" id="outOfStock"></div>
+            <h2>⚠️ 缺货清单</h2>
+            <div class="module-content" id="outOfStock">正在检查库存...</div>
         </div>
         
         <div class="module" style="grid-area: module4;">
-            <h2>模块 4：预留</h2>
-            <div class="module-content" id="reserved">预留模块（暂时空白）</div>
+            <h2>⚙️ 其它工具</h2>
+            <div class="module-content" id="reserved">
+                <p style="color: #888; text-align: center; margin-top: 20px;">预留空间</p>
+            </div>
         </div>
     </div>
     
