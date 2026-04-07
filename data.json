@@ -1,85 +1,98 @@
 {
   "products": [
-    {
-      "id": "17216b",
-      "price": 28.00,
-      "stock": ""
-    },
-    {
-      "id": "17222b",
-      "price": 28.00,
-      "stock": ""
-    },
-    {
-      "id": "83103b",
-      "price": 75.00,
-      "stock": ""
-    },
-    {
-      "id": "vsp80",
-      "price": 35.00,
-      "stock": ""
-    },
-    {
-      "id": "vsp320",
-      "price": 35.00,
-      "stock": ""
-    },
-    {
-      "id": "11146b",
-      "price": 18.00,
-      "stock": ""
-    },
-    {
-      "id": "96013",
-      "price": 50.00,
-      "stock": ""
-    },
-    {
-      "id": "83001",
-      "price": 24.00,
-      "stock": ""
-    },
-    {
-      "id": "gjb1040",
-      "price": 24.00,
-      "stock": ""
-    },
-    {
-      "id": "h7",
-      "price": 5.00,
-      "stock": ""
-    },
-    {
-      "id": "h11",
-      "price": 7.00,
-      "stock": ""
-    },
-    {
-      "id": "921",
-      "price": 10.00,
-      "stock": ""
-    },
-    {
-      "id": "82059",
-      "price": 15.00,
-      "stock": ""
-    },
-    {
-      "id": "20259b",
-      "price": 28.00,
-      "stock": ""
-    },
-    {
-      "id": "11864c",
-      "price": 10.00,
-      "stock": ""
-    }
-    {
-      "id": "20259",
-      "price": 10,
-      "stock": "0"
-    },
+    { "id": "vsp40", "price": 33.00, "stock": "" },
+    { "id": "vsp60", "price": 33.00, "stock": "" },
+    { "id": "vsp80", "price": 33.00, "stock": "" },
+    { "id": "vsp120", "price": 35.00, "stock": "" },
+    { "id": "vsp150", "price": 35.00, "stock": "" },
+    { "id": "vsp180", "price": 33.00, "stock": "" },
+    { "id": "vsp240", "price": 33.00, "stock": "" },
+    { "id": "vsp320", "price": 33.00, "stock": "" },
+    { "id": "vsp400", "price": 33.00, "stock": "" },
+    { "id": "vsp600", "price": 33.00, "stock": "" },
+    { "id": "vsp800", "price": 33.00, "stock": "" },
+    { "id": "wb14", "price": 5.50, "stock": "" },
+    { "id": "wb16", "price": 8.00, "stock": "" },
+    { "id": "wb17", "price": 8.00, "stock": "" },
+    { "id": "wb18", "price": 8.00, "stock": "" },
+    { "id": "wb19", "price": 8.00, "stock": "" },
+    { "id": "wb20", "price": 8.00, "stock": "" },
+    { "id": "wb21", "price": 8.00, "stock": "" },
+    { "id": "wb22", "price": 8.00, "stock": "" },
+    { "id": "wb24", "price": 8.00, "stock": "" },
+    { "id": "wb26", "price": 8.00, "stock": "" },
+    { "id": "wb28", "price": 10.00, "stock": "" },
+    { "id": "gjb612", "price": 13.00, "stock": "" },
+    { "id": "gjb616", "price": 14.00, "stock": "" },
+    { "id": "gjb620", "price": 24.00, "stock": "" },
+    { "id": "gjb625", "price": 16.00, "stock": "" },
+    { "id": "gjb820", "price": 18.00, "stock": "" },
+    { "id": "gjb825", "price": 20.00, "stock": "" },
+    { "id": "gjb830", "price": 21.00, "stock": "" },
+    { "id": "gjb840", "price": 24.00, "stock": "" },
+    { "id": "gjb1030", "price": 22.00, "stock": "" },
+    { "id": "gjb1035", "price": 23.00, "stock": "" },
+    { "id": "gjb1040", "price": 24.00, "stock": "" },
+    { "id": "gjb1045", "price": 26.00, "stock": "" },
+    { "id": "7440", "price": 25.00, "stock": "" },
+    { "id": "7440a", "price": 25.00, "stock": "" },
+    { "id": "7443", "price": 25.00, "stock": "" },
+    { "id": "7443a", "price": 25.00, "stock": "" },
+    { "id": "3156", "price": 25.00, "stock": "" },
+    { "id": "3156a", "price": 25.00, "stock": "" },
+    { "id": "3157", "price": 25.00, "stock": "" },
+    { "id": "3157a", "price": 25.00, "stock": "" },
+    { "id": "1156", "price": 10.00, "stock": "" },
+    { "id": "1157", "price": 10.00, "stock": "" },
+    { "id": "194", "price": 10.00, "stock": "" },
+    { "id": "194a", "price": 10.00, "stock": "" },
+    { "id": "921", "price": 10.00, "stock": "" },
+    { "id": "921a", "price": 10.00, "stock": "" },
+    { "id": "h1", "price": 5.00, "stock": "" },
+    { "id": "h3", "price": 5.00, "stock": "" },
+    { "id": "h4", "price": 5.00, "stock": "" },
+    { "id": "h7", "price": 5.00, "stock": "" },
+    { "id": "h8", "price": 10.00, "stock": "" },
+    { "id": "h11", "price": 7.00, "stock": "" },
+    { "id": "h11b", "price": 10.00, "stock": "" },
+    { "id": "h13", "price": 13.00, "stock": "" },
+    { "id": "9005", "price": 5.00, "stock": "" },
+    { "id": "9006", "price": 5.00, "stock": "" },
+    { "id": "9007", "price": 7.00, "stock": "" },
+    { "id": "96013", "price": 50.00, "stock": "" },
+    { "id": "96014", "price": 50.00, "stock": "" },
+    { "id": "96015", "price": 50.00, "stock": "" },
+    { "id": "96017", "price": 50.00, "stock": "" },
+    { "id": "96018", "price": 50.00, "stock": "" },
+    { "id": "81801", "price": 10.00, "stock": "" },
+    { "id": "81802", "price": 10.00, "stock": "" },
+    { "id": "81803", "price": 10.00, "stock": "" },
+    { "id": "81805", "price": 10.00, "stock": "" },
+    { "id": "81808", "price": 12.00, "stock": "" },
+    { "id": "82076", "price": 15.00, "stock": "" },
+    { "id": "83001", "price": 24.00, "stock": "" },
+    { "id": "83001b", "price": 65.00, "stock": "" },
+    { "id": "83103b", "price": 75.00, "stock": "" },
+    { "id": "83201", "price": 40.00, "stock": "" },
+    { "id": "#4", "price": 6.00, "stock": "" },
+    { "id": "#5", "price": 6.00, "stock": "" },
+    { "id": "#6", "price": 6.00, "stock": "" },
+    { "id": "#8", "price": 8.00, "stock": "" },
+    { "id": "#10", "price": 9.00, "stock": "" },
+    { "id": "#12", "price": 10.00, "stock": "" },
+    { "id": "#16", "price": 10.00, "stock": "" },
+    { "id": "#20", "price": 10.00, "stock": "" },
+    { "id": "#24", "price": 10.00, "stock": "" },
+    { "id": "#28", "price": 10.00, "stock": "" },
+    { "id": "#32", "price": 12.00, "stock": "" },
+    { "id": "#36", "price": 15.00, "stock": "" },
+    { "id": "tr413", "price": 38.00, "stock": "" },
+    { "id": "tr414", "price": 38.00, "stock": "" },
+    { "id": "11146b", "price": 18.00, "stock": "" },
+    { "id": "17216b", "price": 30.00, "stock": "" },
+    { "id": "20259b", "price": 28.00, "stock": "" },
+    { "id": "12065b", "price": 25.00, "stock": "" },
+    { "id": "20259", "price": 10.00, "stock": "0" }
   ],
   "lastUpdated": "2026-04-06"
 }
