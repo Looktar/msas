@@ -13,125 +13,99 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: #f4f4f4; /* 稍微深一点的背景，突出模块 */
-            color: #000000;
-            padding: 15px;
+            background-color: #f8f9fa;
+            color: #333;
+            padding: 10px;
         }
         
         h1 {
             text-align: center;
-            margin-bottom: 20px;
-            font-size: 22px;
-            color: #333;
+            margin: 15px 0;
+            font-size: 20px;
         }
         
+        /* 电脑端布局：两列 */
         .grid-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            grid-template-areas: 
-                "module1 module2"
-                "module3 module4";
             gap: 15px;
-            /* 电脑端保持比例 */
-            min-height: calc(100vh - 100px);
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         .module {
             border: 1px solid #000;
-            background-color: #ffffff;
+            background: #fff;
             padding: 15px;
-            overflow: auto;
-            border-radius: 4px; /* 轻微圆角看起来更现代 */
+            display: flex;
+            flex-direction: column;
+            min-height: 200px;
         }
         
         .module h2 {
             font-size: 16px;
-            margin-bottom: 10px;
-            border-bottom: 1px solid #000;
-            padding-bottom: 5px;
-            display: flex;
-            align-items: center;
-        }
-
-        .module-content {
-            font-size: 14px;
-            line-height: 1.6;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
         }
         
-        /* 查询表单布局 */
-        .search-box {
+        /* 搜索框美化 */
+        .search-group {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             margin-bottom: 10px;
         }
-
+        
         input {
             flex: 1;
             padding: 10px;
-            font-size: 16px; /* 防止 iOS 自动放大 */
-            border: 1px solid #000;
+            font-size: 16px; /* 关键：防止移动端缩放 */
+            border: 1px solid #ccc;
             border-radius: 4px;
         }
         
         button {
-            padding: 10px 20px;
-            font-size: 14px;
-            border: 1px solid #000;
+            padding: 10px 15px;
             background: #000;
             color: #fff;
+            border: none;
+            border-radius: 4px;
             cursor: pointer;
-            border-radius: 4px;
-            transition: 0.2s;
         }
-        
-        button:active {
-            background: #444;
-        }
-        
+
         #searchResult {
-            margin-top: 10px;
+            background: #f1f1f1;
             padding: 10px;
-            background: #f9f9f9;
+            font-size: 14px;
+            white-space: pre-wrap;
             border-radius: 4px;
+        }
+
+        .module-content {
+            font-size: 14px;
+            line-height: 1.5;
             white-space: pre-wrap;
-            font-family: monospace;
         }
         
-        #notifications, #outOfStock, #reserved {
-            white-space: pre-wrap;
-        }
-        
-        /* 移动端适配 */
+        /* --- 核心修复：移动端适配 --- */
         @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-
             .grid-container {
-                grid-template-columns: 1fr;
-                grid-template-areas: 
-                    "module2"  /* 留言板第一 */
-                    "module1"  /* 查询第二 */
-                    "module3"  /* 缺货第三 */
-                    "module4"; /* 预留最后 */
+                display: block; /* 手机端放弃 Grid，改用块级排列 */
+            }
+            
+            .module {
+                width: 100%;
+                margin-bottom: 15px; /* 每个模块之间留空 */
                 height: auto;
+                min-height: unset;
             }
 
-            .search-box {
-                flex-direction: column;
+            .search-group {
+                flex-direction: column; /* 手机上搜索框和按钮垂直排布 */
             }
 
             button {
                 width: 100%;
-                margin-left: 0;
-            }
-
-            h1 {
-                font-size: 18px;
-            }
-
-            .module {
-                min-height: 150px;
             }
         }
     </style>
@@ -140,32 +114,28 @@
     <h1>Internal Management Portal</h1>
     
     <div class="grid-container">
-        <div class="module" style="grid-area: module1;">
-            <h2>🔍 价格查询</h2>
-            <div class="module-content">
-                <div class="search-box">
-                    <input type="text" id="productCode" placeholder="输入产品代码">
-                    <button onclick="searchProduct()">查询</button>
-                </div>
-                <div id="searchResult">等待查询...</div>
+        <div class="module">
+            <h2>📢 模块 2：留言板</h2>
+            <div class="module-content" id="notifications">正在加载公告...</div>
+        </div>
+
+        <div class="module">
+            <h2>🔍 模块 1：价格查询</h2>
+            <div class="search-group">
+                <input type="text" id="productCode" placeholder="输入编号">
+                <button onclick="searchProduct()">查询</button>
             </div>
+            <div id="searchResult">等待输入...</div>
         </div>
         
-        <div class="module" style="grid-area: module2;">
-            <h2>📢 留言板 (notice.txt)</h2>
-            <div class="module-content" id="notifications">正在同步留言...</div>
+        <div class="module">
+            <h2>⚠️ 模块 3：缺货清单</h2>
+            <div class="module-content" id="outOfStock">正在统计...</div>
         </div>
         
-        <div class="module" style="grid-area: module3;">
-            <h2>⚠️ 缺货清单</h2>
-            <div class="module-content" id="outOfStock">正在检查库存...</div>
-        </div>
-        
-        <div class="module" style="grid-area: module4;">
-            <h2>⚙️ 其它工具</h2>
-            <div class="module-content" id="reserved">
-                <p style="color: #888; text-align: center; margin-top: 20px;">预留空间</p>
-            </div>
+        <div class="module">
+            <h2>⚙️ 模块 4：预留</h2>
+            <div class="module-content" id="reserved">（暂时空白）</div>
         </div>
     </div>
     
